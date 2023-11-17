@@ -1,0 +1,41 @@
+﻿@model List<NoteBookVm>
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+<a href="/Account/Logout" class="btn btn-danger" >Logout</a> 
+<h1>Index</h1>
+
+
+<table class="table table-dark tabletable-striped">
+
+
+
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NoteBookName</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.NoteBookName</td>
+                    <td><a href="/Note/Index/@item.Id"class="btn btn-link" >Note</a></td>
+                    <td><a href="/Notebook/update/@item.Id" class="btn btn-dark">Update</a></td>
+                    <td><a href="/Notebook/delete/@item.Id" class="btn btn-danger">Delete</a></td>
+                </tr>
+
+        }
+    </tbody>
+
+</table>
+
+<div> <a href="/Notebook/Create" class="btn btn-primary">New Notebook</a></div>

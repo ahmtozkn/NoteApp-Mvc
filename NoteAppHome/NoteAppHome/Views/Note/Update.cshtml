@@ -1,0 +1,19 @@
+﻿@model NoteVm
+@{
+    ViewData["Title"] = "Update";
+    var Note = (List<SelectListItem>)ViewBag.note;
+}
+
+<h1>Update</h1>
+<form asp-controller="Note" asp-action="Save">
+    <input type="hidden" asp-for="Id" />
+    <label asp-for="Content"></label>
+    <input asp-for="Content" type="text" />
+    <label asp-for="NoteBookName"></label>
+    <select asp-items="Note" asp-for="NoteBookId"></select>
+    <label asp-for="Title"></label>
+    <input asp-for="Title" type="text" />
+
+    <input type="submit" class="btn btn-dark"  value="Save" />
+
+</form>
